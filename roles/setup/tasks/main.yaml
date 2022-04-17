@@ -10,11 +10,17 @@
 - name: powerlevel10k
   import_tasks: powerlevel10k.yaml
 
+- name: lazygit
+  import_tasks: lazygit.yaml
+
 - name: lunarvim
   import_tasks: lunarvim.yaml
 
 - name: golang
   import_tasks: golang.yaml
+
+- name: ssh
+  import_tasks: ssh.yaml
 
 - name: google
   import_tasks: google-chrome.yaml

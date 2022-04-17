@@ -19,3 +19,10 @@
 
 - name: Set npm prefix
   command: npm config set prefix ~/.npm-global
+
+- name: Git config
+  command: git config --global user.email 'tajpereira@gmail.com'
+
+- name: Git config
+  command: git config --global user.name 'Taj Pereira'
+
