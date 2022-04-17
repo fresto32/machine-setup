@@ -1,0 +1,15 @@
+- name: Copy install script
+  copy:
+    src: lunarvim-setup.sh
+    dest: /tmp/
+    mode: 0755
+  become: yes
+
+- name: Run install script as user
+  command: "/tmp/lunarvim-setup.sh --yes"
+
+- name: Use tabs mode for bufferline
+  lineinfile:
+    path: ~/.local/share/lunarvim/site/pack/packer/opt/bufferline.nvim/lua/bufferline/config.lua
+    regex: '      mode = "buffers",'
+    line: '      mode = "tabs",'

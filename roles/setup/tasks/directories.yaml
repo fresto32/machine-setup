@@ -1,0 +1,14 @@
+- name: Create programs directory
+  file:
+    path: ~/.programs
+    state: directory
+
+- name: Create programs directory
+  file:
+    path: ~/.local/bin
+    state: directory
+
+- name: Add bin to bash
+  lineinfile:
+    path: ~/.bashrc
+    line: PATH=$PATH:~/.local/bin/

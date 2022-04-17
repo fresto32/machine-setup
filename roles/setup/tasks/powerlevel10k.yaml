@@ -1,0 +1,14 @@
+- name: Clone powerlevel10k
+  git:
+    repo: https://github.com/romkatv/powerlevel10k.git
+    depth: 1
+    dest: ~/powerlevel10k
+
+- name: Copy zshrc
+  copy:
+    src: .zshrc
+    dest: ~/.zshrc
+
+- name: Set zsh as default shell
+  command: chsh -s /bin/zsh
+  become: true

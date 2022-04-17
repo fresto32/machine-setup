@@ -1,0 +1,20 @@
+- name: Check golang version
+  command: go version
+  changed_when: false
+  failed_when: false
+  register: go_version
+
+- name: Install golang
+  block:
+  - name: Download golang
+    get_url:
+      url: https://go.dev/dl/go1.18.1.linux-amd64.tar.gz
+      dest: /tmp/
+      mode: 0755
+  
+  - name: Install golang
+    unarchive:
+      src: /tmp/go1.18.1.linux-amd64.tar.gz
+      dest: ~/.local/bin/
+      mode: 0755
+  when: go_version.rc != 0 or "1.18.1" not in go_version.stdout

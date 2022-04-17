@@ -1,0 +1,21 @@
+- name: Install various packages
+  package:
+    name: 
+      - git
+      - vim
+      - ansible
+      - zsh
+      - nodejs
+      - npm
+      - cargo
+      - pip
+    state: present
+  become: yes
+
+- name: Create .npm-global
+  file:
+    path: ~/.npm-global
+    state: directory
+
+- name: Set npm prefix
+  command: npm config set prefix ~/.npm-global

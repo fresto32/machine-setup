@@ -1,0 +1,20 @@
+- name: packages
+  import_tasks: packages.yaml
+
+- name: directories
+  import_tasks: directories.yaml
+
+- name: neovim
+  import_tasks: neovim.yaml
+
+- name: powerlevel10k
+  import_tasks: powerlevel10k.yaml
+
+- name: lunarvim
+  import_tasks: lunarvim.yaml
+
+- name: golang
+  import_tasks: golang.yaml
+
+- name: google
+  import_tasks: google-chrome.yaml
