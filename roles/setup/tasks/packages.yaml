@@ -10,7 +10,7 @@
       - cargo
       - pip
     state: present
-  become: yes
+  become: true
 
 - name: Create .npm-global
   file:
