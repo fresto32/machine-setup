@@ -1,15 +1,24 @@
-- name: Copy install script
-  copy:
-    src: lunarvim-setup.sh
-    dest: /tmp/
-    mode: 0755
-  become: yes
+- name: Check version
+  command: lvim --version
+  changed_when: false
+  failed_when: false
+  register: lunarvim_version
 
-- name: Run install script as user
-  command: "/tmp/lunarvim-setup.sh --yes"
-
-- name: Use tabs mode for bufferline
-  lineinfile:
-    path: ~/.local/share/lunarvim/site/pack/packer/opt/bufferline.nvim/lua/bufferline/config.lua
-    regex: '      mode = "buffers",'
-    line: '      mode = "tabs",'
+- name: Install LunarVim
+  block:
+  - name: Copy install script
+    copy:
+      src: lunarvim-setup.sh
+      dest: /tmp/
+      mode: 0755
+    become: true
+  
+  - name: Run install script as user
+    command: "/tmp/lunarvim-setup.sh --yes"
+  
+  - name: Use tabs mode for bufferline
+    lineinfile:
+      path: ~/.local/share/lunarvim/site/pack/packer/opt/bufferline.nvim/lua/bufferline/config.lua
+      regex: '      mode = "buffers",'
+      line: '      mode = "tabs",'
+  when: lunarvim_version.rc != 0 or "2.1.0-beta3" not in lunarvim_version.stdout

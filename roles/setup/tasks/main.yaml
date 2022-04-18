@@ -1,26 +1,40 @@
 - name: packages
   import_tasks: packages.yaml
+  tags: [packages]
 
 - name: directories
   import_tasks: directories.yaml
+  tags: [directories]
 
 - name: neovim
   import_tasks: neovim.yaml
+  tags: [neovim]
 
 - name: powerlevel10k
   import_tasks: powerlevel10k.yaml
+  tags: [powerlevel10k]
 
 - name: lazygit
   import_tasks: lazygit.yaml
+  tags: [lazygit]
 
 - name: lunarvim
   import_tasks: lunarvim.yaml
+  tags: [lunarvim]
 
 - name: golang
   import_tasks: golang.yaml
+  tags: [golang]
 
 - name: ssh
   import_tasks: ssh.yaml
+  tags: [ssh]
+
+- name: nerd font
+  import_tasks: nerdfont.yaml
+  tags: [nerd]
 
 - name: google
   import_tasks: google-chrome.yaml
+  tags: [google]
+

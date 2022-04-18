@@ -1,0 +1,14 @@
+- name: Make fonts directory
+  file:
+    path: ~/.fonts/
+    state: directory
+
+- name: Download nerdfont
+  get_url:
+    url: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
+    dest: /tmp/
+
+- name: Unarchive fonts
+  unarchive:
+    src: /tmp/JetBrainsMono.zip
+    dest: ~/.fonts/
