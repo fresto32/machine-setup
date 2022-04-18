@@ -1,24 +1,18 @@
- - name: Does the Google apt file exist?
-   command: test -f 
-   register: google_apt_exists
-   ignore_errors: True
-   become: yes
+- name: Google Chrome version
+  command: google-chrome --version
+  changed_when: false
+  failed_when: false
+  register: chrome_version
 
- - name: Add Google Chrome key
-   shell: wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-   when: google_apt_exists.rc == 1
-   become: yes
-
- - name: Add Google Chrome repo
-   copy: content="deb http://dl.google.com/linux/chrome/deb/ stable main" dest= owner=root group=root mode=644
-   when: google_apt_exists.rc == 1
-   become: yes
-
- - name: Update apt cache
-   apt: update_cache=yes
-   when: google_apt_exists.rc == 1
-   become: yes
-
- - name: Install Google Chrome
-   apt: pkg=google-chrome-stable state=installed
-   become: yes
+- name: Install Google Chrome
+  block:
+  - name: Download Google Chrome
+    get_url:
+      url: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+      dest: /tmp/
+  
+  - name: Install Google Chrome
+    apt:
+      deb: /tmp/google-chrome-stable_current_amd64.deb
+    become: true
+  when: chrome_version.rc != 0
