@@ -42,3 +42,6 @@
   import_tasks: google-chrome.yaml
   tags: [google]
 
+- name: Docker
+  import_tasks: docker.yaml
+  tags: [docker]
