@@ -26,6 +26,10 @@
   import_tasks: golang.yaml
   tags: [golang]
 
+- name: task
+  import_tasks: task.yaml
+  tags: [task]
+
 - name: ssh
   import_tasks: ssh.yaml
   tags: [ssh]

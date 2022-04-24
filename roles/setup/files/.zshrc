@@ -27,3 +27,4 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 PATH=$PATH:~/.local/bin/
 PATH=$PATH:~/.local/bin/go/bin
+PATH=$PATH:~/go/bin

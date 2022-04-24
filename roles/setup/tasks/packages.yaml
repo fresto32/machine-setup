@@ -9,6 +9,7 @@
       - npm
       - cargo
       - pip
+      - curl
     state: present
   become: true
 
