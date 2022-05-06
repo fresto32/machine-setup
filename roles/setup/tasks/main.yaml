@@ -22,6 +22,10 @@
   import_tasks: lunarvim.yaml
   tags: [lunarvim]
 
+- name: rust
+  import_tasks: rust.yaml
+  tags: [rust]
+
 - name: golang
   import_tasks: golang.yaml
   tags: [golang]

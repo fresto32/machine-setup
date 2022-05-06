@@ -9,7 +9,7 @@
     src: .zshrc
     dest: ~/.zshrc
 
-- name: Set login shell of user {{ ansible_env.USER }} to `/bin/zsh` with `usermod`
-  ansible.builtin.command: usermod --shell /bin/zsh {{ ansible_env.USER }}
+- name: "Set login shell of user to `/bin/zsh` with `usermod`"
+  command: usermod --shell /bin/zsh {{ ansible_env.USER }}
   become: true
   changed_when: false
