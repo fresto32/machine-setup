@@ -10,6 +10,8 @@
       - cargo
       - pip
       - curl
+      - ripgrep
+      - fd-find
     state: present
   become: true
 
