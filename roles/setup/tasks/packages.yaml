@@ -12,6 +12,9 @@
       - curl
       - ripgrep
       - fd-find
+      - exa
+      - bat
+      - zoxide
     state: present
   become: true
 

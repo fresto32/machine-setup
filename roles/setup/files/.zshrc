@@ -29,3 +29,12 @@ PATH=$PATH:~/.local/bin/
 PATH=$PATH:~/.local/bin/go/bin
 PATH=$PATH:~/go/bin
 PATH=$PATH:~/.npm-global/bin
+
+alias cat='bat'
+alias cd='z'
+alias ls='exa -1'
+alias tree='exa --tree'
+alias ll='exa -1 -l'
+
+
+eval "$(zoxide init zsh)"
