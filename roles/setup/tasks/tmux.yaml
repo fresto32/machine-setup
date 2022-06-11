@@ -1,0 +1,21 @@
+- name: Install tmux
+  package:
+    name: 
+      - tmux
+    state: present
+  become: true
+
+- name: Install Oh my Tmux
+  git:
+    repo: https://github.com/gpakosz/.tmux.git
+    dest: "{{ lookup('env', 'HOME') }}/.tmux"
+
+- name: Symlink
+  command: ln -s -f .tmux/.tmux.conf
+  args:
+    chdir: "{{ lookup('env', 'HOME') }}"
+
+- name: Copy conf
+  command: cp .tmux/.tmux.conf.local .
+  args:
+    chdir: "{{ lookup('env', 'HOME') }}"

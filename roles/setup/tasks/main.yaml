@@ -22,6 +22,10 @@
   import_tasks: lunarvim.yaml
   tags: [lunarvim]
 
+- name: tmux
+  import_tasks: tmux.yaml
+  tags: [tmux]
+
 - name: rust
   import_tasks: rust.yaml
   tags: [rust]
