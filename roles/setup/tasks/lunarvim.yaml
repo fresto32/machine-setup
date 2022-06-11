@@ -21,4 +21,11 @@
       path: ~/.local/share/lunarvim/site/pack/packer/opt/bufferline.nvim/lua/bufferline/config.lua
       regex: '      mode = "buffers",'
       line: '      mode = "tabs",'
+
   when: lunarvim_version.rc != 0 or "2.1.0-beta3" not in lunarvim_version.stdout
+
+- name: Copy install script
+  copy:
+    src: lvim.lua
+    dest: "{{ lookup('env', 'home') }}/.config/lvim"
+    mode: 0755
